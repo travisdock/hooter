@@ -1,0 +1,16 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Hooter
+    %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}/
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload"
+    = favicon_link_tag asset_path('favicon.png')
+    = stylesheet_link_tag "application", "data-turbo-track": "reload"
+    = javascript_importmap_tags
+  %body
+    %main.container.mx-auto.mt-28.px-5.flex
+      = link_to "Log Out", destroy_user_session_path, data: { 'turbo-method': :delete }
+      = yield
