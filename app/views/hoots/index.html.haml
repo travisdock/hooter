@@ -13,7 +13,7 @@
     - @hoots.each do |hoot|
       %tr
         %td= hoot.body
-        %td= hoot.user
+        %td= hoot.user.username
         %td= link_to 'Show', hoot
         %td= link_to 'Edit', edit_hoot_path(hoot)
         %td= link_to 'Destroy', hoot, method: :delete, data: { confirm: 'Are you sure?' }
