@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
+  resources :hoots
   devise_for :users
   devise_scope :user do
     authenticated :user do
-      root 'devise/registrations#edit', as: :authenticated_root
+      root 'hoots#index', as: :authenticated_root
     end
 
     unauthenticated :user do

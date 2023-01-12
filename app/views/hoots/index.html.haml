@@ -1,0 +1,23 @@
+%h1 Listing hoots
+
+%table
+  %thead
+    %tr
+      %th Body
+      %th User
+      %th
+      %th
+      %th
+
+  %tbody
+    - @hoots.each do |hoot|
+      %tr
+        %td= hoot.body
+        %td= hoot.user
+        %td= link_to 'Show', hoot
+        %td= link_to 'Edit', edit_hoot_path(hoot)
+        %td= link_to 'Destroy', hoot, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Hoot', new_hoot_path

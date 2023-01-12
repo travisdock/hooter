@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Body:
+  = @hoot.body
+%p
+  %b User:
+  = @hoot.user.username
+
+= link_to 'Edit', edit_hoot_path(@hoot)
+\|
+= link_to 'Back', hoots_path

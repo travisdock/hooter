@@ -1,0 +1,13 @@
+= form_for @hoot do |f|
+  - if @hoot.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@hoot.errors.count, "error")} prohibited this hoot from being saved:"
+      %ul
+        - @hoot.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :body
+    = f.text_field :body
+  .actions
+    = f.submit 'Save'

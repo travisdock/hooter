@@ -1,0 +1,3 @@
+class Hoot < ApplicationRecord
+  belongs_to :user
+end
