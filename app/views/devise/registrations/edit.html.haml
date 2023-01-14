@@ -10,6 +10,14 @@
     %div
       Currently waiting confirmation for: #{resource.unconfirmed_email}
   .field
+    = f.label :username
+    %br/
+    = f.text_field :username, autocomplete: "username"
+  .field
+    = f.label :bio
+    %br/
+    = f.text_area :bio, autocomplete: "bio"
+  .field
     = f.label :password
     %i (leave blank if you don't want to change it)
     %br/
