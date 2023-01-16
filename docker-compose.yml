@@ -19,5 +19,12 @@ services:
       - "3000:3000"
     depends_on:
       - postgres
+  tailwind:
+    build:
+      context: .
+      dockerfile: Dockerfile.tailwind
+    tty: true
+    volumes:
+      - .:/app_home
 volumes:
   postgres: {}

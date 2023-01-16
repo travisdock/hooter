@@ -1,3 +1,3 @@
 rm -f tmp/pids/server.pid
 
-bundle exec foreman start -f Procfile.dev -p 3000
+bin/rails server -p 3000 -b 0.0.0.0
