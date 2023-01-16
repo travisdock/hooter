@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :hoots
-  resources :likes, only: [:create, :destroy]
+  resources :likes, only: [:destroy]
+  post '/hoots/:id/like', to: 'likes#create', as: 'hoot_like'
   devise_for :users
   devise_scope :user do
     authenticated :user do

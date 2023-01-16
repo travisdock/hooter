@@ -18,7 +18,7 @@
         %td= hoot.likes.count
         %td= link_to 'Show', hoot
         %td= link_to 'Edit', edit_hoot_path(hoot)
-        %td= button_to 'Like', likes_path(hoot), method: :post
+        %td= button_to 'Like', hoot_like_path(hoot), method: :post
 
 %br
 
