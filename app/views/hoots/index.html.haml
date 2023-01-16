@@ -5,6 +5,7 @@
     %tr
       %th Body
       %th User
+      %th Likes
       %th
       %th
       %th
@@ -14,9 +15,10 @@
       %tr
         %td= hoot.body
         %td= hoot.user.username
+        %td= hoot.likes.count
         %td= link_to 'Show', hoot
         %td= link_to 'Edit', edit_hoot_path(hoot)
-        %td= link_to 'Destroy', hoot, method: :delete, data: { confirm: 'Are you sure?' }
+        %td= button_to 'Like', likes_path(hoot), method: :post
 
 %br
 
