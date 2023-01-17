@@ -1,4 +1,6 @@
 class LikesController < ApplicationController
+  before_action :authenticate_user!
+
   def create
     @like = Like.new(hoot_id: params[:id], user_id: current_user.id)
     if @like.save
