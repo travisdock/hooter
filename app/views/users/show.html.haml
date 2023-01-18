@@ -1,0 +1,13 @@
+%p
+  %b User:
+  = @user.username
+  %br
+  %b Followers:
+  = @user.followers.count
+  %br
+  %b Follows:
+  = @user.follows.count
+  %br
+  - unless current_user == @user
+    = button_to 'Follow', follow_user_path(@user), method: :post
+= link_to 'Back', hoots_path

@@ -14,7 +14,7 @@
     - @hoots.each do |hoot|
       %tr
         %td= hoot.body
-        %td= hoot.user.username
+        %td= link_to hoot.user.username, user_path(hoot.user)
         %td= hoot.likes.count
         %td= link_to 'Show', hoot
         %td= link_to 'Edit', edit_hoot_path(hoot)

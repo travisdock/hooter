@@ -5,4 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :hoots
   has_many :likes
+  has_many :liked_hoots, through: :likes, source: :hoot
+  has_many :followers, class_name: "Follower", foreign_key: "followed_id"
+  has_many :follows, class_name: "Follower", foreign_key: "follower_id"
 end
