@@ -4,6 +4,6 @@ class FollowersController < ApplicationController
   def create
     @user = User.find(params[:id])
     current_user.follows.create(followed_id: @user.id)
-    redirect_to @user
+    redirect_to hooter_path(@user)
   end
 end

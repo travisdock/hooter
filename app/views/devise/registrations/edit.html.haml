@@ -1,6 +1,5 @@
-%h2
-  Edit #{resource_name.to_s.humanize}
-= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+%h2 Edit #{resource_name.to_s.humanize}
+= form_for(resource, as: resource_name, url: hooter_path(resource.id), html: { method: :put }) do |f|
   = render "devise/shared/error_messages", resource: resource
   .field
     = f.label :email
@@ -17,6 +16,12 @@
     = f.label :bio
     %br/
     = f.text_area :bio, autocomplete: "bio"
+  .actions
+    = f.submit "Update", data: { turbo: false }
+
+%h2 Edit #{resource_name.to_s.humanize} Password
+= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+  = render "devise/shared/error_messages", resource: resource
   .field
     = f.label :password
     %i (leave blank if you don't want to change it)
