@@ -13,7 +13,7 @@
     - @hoots.each do |hoot|
       %tr
         %td= hoot.body_with_links
-        %td= link_to hoot.user.username, user_path(hoot.user)
+        %td= link_to hoot.user.username, hooter_path(hoot.user)
         %td= hoot.likes.count
         %td= link_to 'Show', hoot
         %td= button_to 'Like', hoot_like_path(hoot), method: :post
