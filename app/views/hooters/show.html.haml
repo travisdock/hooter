@@ -10,9 +10,9 @@
   %b Followers:
   = @hooter.followers.count
   %br
-  %b Follows:
+  %b Following:
   = @hooter.follows.count
   %br
-  - unless current_user == @hooter
+  - unless current_user == @hooter || current_user.following_users.include?(@hooter)
     = button_to 'Follow', follow_user_path(@hooter), method: :post
 = link_to 'Back', hoots_path
