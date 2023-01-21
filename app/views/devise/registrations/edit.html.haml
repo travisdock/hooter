@@ -1,13 +1,14 @@
 %h2 Edit #{resource_name.to_s.humanize}
-= form_for(resource, as: resource_name, url: hooter_path(resource.id), html: { method: :put }) do |f|
+= form_for(resource, as: resource_name, url: hooter_path(resource.id), html: { method: :put, data: { turbo: false } } ) do |f|
   = render "devise/shared/error_messages", resource: resource
   .field
     = f.label :email
     %br/
     = f.email_field :email, autofocus: true, autocomplete: "email"
-  - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-    %div
-      Currently waiting confirmation for: #{resource.unconfirmed_email}
+  .field
+    = f.label :avatar
+    %br/
+    = f.file_field :avatar
   .field
     = f.label :username
     %br/

@@ -19,6 +19,6 @@ class HootersController < ApplicationController
     end
 
     def hooter_params
-      params.require(:user).permit(:email, :bio, :username)
+      params.require(:user).permit(:email, :bio, :username, :avatar)
     end
 end

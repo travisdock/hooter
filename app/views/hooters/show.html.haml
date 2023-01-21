@@ -1,4 +1,9 @@
 %p
+  - if @hooter.avatar.attached?
+    = image_tag(@hooter.avatar)
+  - else
+    = image_tag('default_avatar')
+  %br
   %b User:
   = @hooter.username
   %br

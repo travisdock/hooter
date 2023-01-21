@@ -12,6 +12,9 @@
     = javascript_importmap_tags
   %body
     %main.container.mx-auto.mt-28.px-5.flex
+      - flash.each do |type, msg|
+        %div
+          = msg
       = link_to "Log Out", destroy_user_session_path, data: { 'turbo-method': :delete }
       = link_to "Edit Profile", edit_user_registration_path
       = yield
