@@ -13,7 +13,7 @@
     - @hoots.each do |hoot|
       %tr
         %td= hoot.body_with_links
-        %td= link_to hoot.user.username, hooter_path(hoot.user)
+        %td= link_to hoot.user.username, show_user_path(hoot.user)
         %td= hoot.likes.count
         %td= link_to 'Show', hoot
         %td= button_to 'Like', hoot_like_path(hoot), method: :post, class: 'bg-blue-500 text-white font-bold py-2 px-4 rounded shadow' unless current_user == hoot.user || current_user.liked_hoots.include?(hoot)

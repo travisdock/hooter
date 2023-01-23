@@ -1,0 +1,18 @@
+%p
+  - if @user.avatar.attached?
+    = image_tag(@user.avatar)
+  - else
+    = image_tag('default_avatar')
+  %br
+  %b User:
+  = @user.username
+  %br
+  %b Followers:
+  = @user.followers.count
+  %br
+  %b Following:
+  = @user.follows.count
+  %br
+  - unless current_user == @user || current_user.following_users.include?(@user)
+    = button_to 'Follow', follow_user_path(@user), method: :post
+= link_to 'Back', hoots_path

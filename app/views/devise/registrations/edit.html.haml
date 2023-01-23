@@ -1,5 +1,5 @@
 %h2 Edit #{resource_name.to_s.humanize}
-= form_for(resource, as: resource_name, url: hooter_path(resource.id), html: { method: :put, data: { turbo: false } } ) do |f|
+= form_for(resource, as: resource_name, url: edit_user_path(resource.id), html: { method: :put, data: { turbo: false } } ) do |f|
   = render "devise/shared/error_messages", resource: resource
   .field
     = f.label :email
