@@ -26,5 +26,7 @@ services:
     tty: true
     volumes:
       - .:/app_home
+    depends_on:
+      - web
 volumes:
   postgres: {}

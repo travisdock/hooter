@@ -9,4 +9,6 @@ else
   bundle install --jobs=$(nproc)
 fi
 
+bundle exec rails db:prepare
+
 exec "$@"
