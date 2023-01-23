@@ -1,3 +1,4 @@
+### Twitter clone used for educational pairing
 Created with:
 ```
 docker run -it -v /Users/me/development:/development -w /development ruby:latest bash
