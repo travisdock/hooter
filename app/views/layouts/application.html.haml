@@ -10,11 +10,11 @@
     = favicon_link_tag asset_path('favicon.png')
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_importmap_tags
-  %body
-    %main.container.mx-auto.mt-28.px-5.flex
+  %body.bg-black.h-full
+    %main.container.mx-auto.px-5
       - flash.each do |type, msg|
         %div
           = msg
-      = link_to "Log Out", destroy_user_session_path, data: { 'turbo-method': :delete }
-      = link_to "Edit Profile", edit_user_registration_path
-      = yield
+      = render "layouts/sidebar"
+      %div.hidden
+        = yield
