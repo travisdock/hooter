@@ -7,6 +7,6 @@
   %b User:
   = @hoot.user.username
 
-= link_to 'Edit', edit_hoot_path(@hoot)
-\|
+= link_to 'Edit', edit_hoot_path(@hoot) if current_user == @hoot.user
+%br
 = link_to 'Back', hoots_path

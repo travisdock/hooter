@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :likes, only: [:destroy]
   post '/hoots/:id/like', to: 'likes#create', as: 'hoot_like'
   post 'followers/:id', to: 'followers#create', as: 'follow_user'
+  delete 'followers/:id', to: 'followers#destroy', as: 'unfollow_user'
   devise_for :users
   devise_scope :user do
     put 'users/update/:id', to: 'users#update', as: 'edit_user'

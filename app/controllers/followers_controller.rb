@@ -4,6 +4,12 @@ class FollowersController < ApplicationController
   def create
     @user = User.find(params[:id])
     current_user.follows.create(followed_id: @user.id)
-    redirect_to user_path(@user)
+    redirect_to show_user_path(@user)
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    current_user.follows.find_by(followed_id: @user.id).destroy
+    redirect_to show_user_path(@user)
   end
 end

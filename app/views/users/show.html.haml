@@ -14,5 +14,7 @@
   = @user.follows.count
   %br
   - unless current_user == @user || current_user.following_users.include?(@user)
-    = button_to 'Follow', follow_user_path(@user), method: :post
+    = link_to 'Follow', follow_user_path(@user), data: { turbo_method: :post }
+  - unless current_user == @user || !current_user.following_users.include?(@user)
+    = link_to 'Unfollow', unfollow_user_path(@user), method: :delete, data: { turbo_method: :delete }
 = link_to 'Back', hoots_path
