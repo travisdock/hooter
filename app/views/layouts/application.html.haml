@@ -10,11 +10,12 @@
     = favicon_link_tag asset_path('favicon.png')
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_importmap_tags
-  %body.bg-black.h-full
+  %body.bg-black.h-full.w-full
     %main.container.mx-auto.px-5
       - flash.each do |type, msg|
         %div
           = msg
-      = render "layouts/sidebar"
-      %div.hidden
-        = yield
+      %div.flex
+        = render "layouts/sidebar"
+        %div.border-r.border-neutral-600{ class: "w-[640px]" }
+          = yield

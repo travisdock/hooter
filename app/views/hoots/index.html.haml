@@ -1,23 +1,26 @@
-%h1 Listing hoots
+= render @hoots
 
-%table
-  %thead
-    %tr
-      %th Body
-      %th User
-      %th Likes
-      %th
-      %th
-
-  %tbody
-    - @hoots.each do |hoot|
+%div.hidden
+  %h1 Listing hoots
+  
+  %table
+    %thead
       %tr
-        %td= hoot.body_with_links
-        %td= link_to hoot.user.username, show_user_path(hoot.user)
-        %td= hoot.likes.count
-        %td= link_to 'Show', hoot
-        %td= button_to 'Like', hoot_like_path(hoot), method: :post, class: 'bg-blue-500 text-white font-bold py-2 px-4 rounded shadow' unless current_user == hoot.user || current_user.liked_hoots.include?(hoot)
-
-%br
-
-= link_to 'New Hoot', new_hoot_path
+        %th Body
+        %th User
+        %th Likes
+        %th
+        %th
+  
+    %tbody
+      - @hoots.each do |hoot|
+        %tr
+          %td= hoot.body_with_links
+          %td= link_to hoot.user.username, show_user_path(hoot.user)
+          %td= hoot.likes.count
+          %td= link_to 'Show', hoot
+          %td= button_to 'Like', hoot_like_path(hoot), method: :post, class: 'bg-blue-500 text-white font-bold py-2 px-4 rounded shadow' unless current_user == hoot.user || current_user.liked_hoots.include?(hoot)
+  
+  %br
+  
+  = link_to 'New Hoot', new_hoot_path
