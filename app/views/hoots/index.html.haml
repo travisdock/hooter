@@ -1,8 +1,9 @@
+= render "form"
 = render @hoots
 
 %div.hidden
   %h1 Listing hoots
-  
+
   %table
     %thead
       %tr
@@ -11,7 +12,7 @@
         %th Likes
         %th
         %th
-  
+
     %tbody
       - @hoots.each do |hoot|
         %tr

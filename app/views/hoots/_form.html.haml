@@ -1,13 +1,27 @@
-= form_for @hoot do |f|
-  - if @hoot.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@hoot.errors.count, "error")} prohibited this hoot from being saved:"
-      %ul
-        - @hoot.errors.full_messages.each do |message|
-          %li= message
-
-  .field
-    = f.label :body
-    = f.text_field :body
-  .actions
-    = f.submit 'Save'
+%div.flex.text-white.gap-3.px-4.py-3.border-neutral-600.border-b
+  = image_tag(@hoot.user.avatar, class: "object-cover w-12 h-12 rounded-full")
+  %div{ class: "text-[15px] w-full" }
+    = form_for @hoot do |f|
+      - if @hoot.errors.any?
+        #error_explanation
+          %h2= "#{pluralize(@hoot.errors.count, "error")} prohibited this hoot from being saved:"
+          %ul
+            - @hoot.errors.full_messages.each do |message|
+              %li= message
+      %div.flex.flex-col.items-start
+        %div.flex.items-center.gap-1.text-blue-500.border-neutral-400.border.px-3.rounded-full{ class: "py-0.5 hover:text-blue-400 cursor-pointer" }
+          %span.text-sm.font-bold Everyone
+          %svg.w-4.h-4{:fill => "none", :stroke => "currentColor", "stroke-width" => "2.5", :viewbox => "0 0 24 24", :xmlns => "http://www.w3.org/2000/svg"}
+            %path{:d => "M19.5 8.25l-7.5 7.5-7.5-7.5", "stroke-linecap" => "round", "stroke-linejoin" => "round"}
+      .field
+        = f.label :body, class: "sr-only"
+        = f.text_field :body, placeholder: "What's happening?", class: "w-full py-3 placeholder-neutral-600 bg-transparent border-none outline-none text-white text-xl px-0"
+      .border-t.border-neutral-600.pt-3.flex.justify-between
+        %div.flex.items-center.gap-3
+          %a{ href: "#", class: "text-blue-500 hover:text-blue-400" }
+            %svg.w-5.h-5{fill: "none", stroke: "currentColor", "stroke-width" => "1.5", viewbox: "0 0 24 24", xmlns: "http://www.w3.org/2000/svg"}
+              %path{d: "M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z", "stroke-linecap" => "round", "stroke-linejoin" => "round"}
+          %a{ href: "#", class: "text-blue-500 hover:text-blue-400" }
+            %svg.w-5.h-5{fill: "none", stroke: "currentColor", "stroke-width" => "1.5", viewbox: "0 0 24 24", xmlns: "http://www.w3.org/2000/svg"}
+              %path{d: "M12.75 8.25v7.5m6-7.5h-3V12m0 0v3.75m0-3.75H18M9.75 9.348c-1.03-1.464-2.698-1.464-3.728 0-1.03 1.465-1.03 3.84 0 5.304 1.03 1.464 2.699 1.464 3.728 0V12h-1.5M4.5 19.5h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z", "stroke-linecap" => "round", "stroke-linejoin" => "round"}
+        = f.submit 'Hoot', class: "bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded-full"

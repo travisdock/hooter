@@ -4,6 +4,7 @@ class HootsController < ApplicationController
 
   # GET /hoots or /hoots.json
   def index
+    @hoot = Hoot.new(user: current_user)
     @hoots = Hoot.all
   end
 
