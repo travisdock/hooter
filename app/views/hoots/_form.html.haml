@@ -1,5 +1,6 @@
 %div.flex.text-white.gap-3.px-4.py-3.border-neutral-600.border-b
-  = image_tag(@hoot.user.avatar, class: "object-cover w-12 h-12 rounded-full")
+  - if @hoot.user&.avatar&.attached?
+    = image_tag(@hoot.user.avatar, class: "object-cover w-12 h-12 rounded-full")
   %div{ class: "text-[15px] w-full" }
     = form_for @hoot do |f|
       - if @hoot.errors.any?
